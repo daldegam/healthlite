@@ -3,18 +3,22 @@
 	<ContentPage.Content>
 		<!--Imagem do Usuário-->
 		<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-			<Label Text="Nome"></Label>
-
+			
 		</StackLayout>
-
 
 	    <!-- Pessoa -->
 		<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 			<Label Text="Nome"></Label>
-			<Label x:Name="lblNome" Text="{Binding Nome}"></Label>
+			<Label x:Name="lblNome" Text="{Binding NomePessoa}"></Label>
+
+			<Label Text="Telefone para contato: "></Label>
+			<Label x:Name="lblTelefone" Text="{Binding Telefone}"></Label>
 
 			<Label Text="Data de Nascimento"></Label>
-			<Label x:Name="lblNome" Text="{Binding DataNascimento}"></Label>
+			<Label x:Name="lblDtNascimento" Text="{Binding DataNascimento}"></Label>
+
+			<Label Text="Sexo"></Label>
+			<Label x:Name="lblSexo" Text="{Binding Sexo}"></Label>
 
 			<Label Text="Altura"></Label>
 			<Label x:Name="lblAltura" Text="{Binding Altura}"></Label>
@@ -23,33 +27,106 @@
 			<Label x:Name="lblPeso" Text="{Binding Peso}"></Label>
 
 			<Label Text="IMC"></Label>
-			<Label x:Name="lblIMC" Text="{Binding Altura}"></Label>
-
+			<Label x:Name="lblIMC" Text="{Binding IMC}"></Label>
 		</StackLayout>
 
 		<!-- Doenças -->
 		<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-			
-			
+			<ListView x:Name="ListaDoencas">
+				<ListView.ItemTemplate>
+                       <DataTemplate>
+                            <ViewCell>
+                               <ViewCell.View>
+                                   <Grid Padding="5">
+                                       <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                       </Grid.ColumnDefinitions>                                        
+                                        <Label Grid.Row="0" VerticalOptions = "CenterAndExpand" Grid.Column="1" Text="{Binding DoencaModel.Nome}" LineBreakMode="TailTruncation"  FontSize="Medium"/>
+                                    </Grid>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+			</ListView>
 		</StackLayout>
-
 
 		<!-- Alergias -->
 		<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-			
-			
+			<ListView x:Name="ListaAlergias">
+				<ListView.ItemTemplate>
+                       <DataTemplate>
+                            <ViewCell>
+                               <ViewCell.View>
+                                   <Grid Padding="5">
+                                       <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                       </Grid.ColumnDefinitions>                                        
+                                        <Label Grid.Row="0" VerticalOptions = "CenterAndExpand" 
+                                        	   Grid.Column="1" Text="{Binding AlergiaModel.Nome}" LineBreakMode="TailTruncation"  FontSize="Medium"/>
+                                    </Grid>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+			</ListView>			
 		</StackLayout>
 
 		<!-- Intolerâncias -->
 		<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-			
+			<ListView x:Name="ListaIntolerancias">
+				<ListView.ItemTemplate>
+                       <DataTemplate>
+                            <ViewCell>
+                               <ViewCell.View>
+                                   <Grid Padding="5">
+                                       <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                       </Grid.ColumnDefinitions>                                        
+                                        <Label Grid.Row="0" VerticalOptions = "CenterAndExpand" Grid.Column="1" Text="{Binding IntoleranciaModel.Nome}" LineBreakMode="TailTruncation"  FontSize="Medium"/>
+                                    </Grid>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+			</ListView>
 			
 		</StackLayout>
 
 
 		<!-- Remédios -->
 		<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-			
+			<ListView x:Name="Lista">
+				<ListView.ItemTemplate>
+                       <DataTemplate>
+                            <ViewCell>
+                               <ViewCell.View>
+                                   <Grid Padding="5">
+                                       <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                       </Grid.ColumnDefinitions>                                        
+                                        <Label Grid.Row="0" VerticalOptions = "CenterAndExpand" Grid.Column="1" Text="{Binding Remedio}" LineBreakMode="TailTruncation"  FontSize="Medium"/>
+                                        <Label Grid.Row="0" VerticalOptions = "CenterAndExpand" Grid.Column="1" Text="{Binding IntervaloDose}" LineBreakMode="TailTruncation"  FontSize="Medium"/>
+                                        <Label Grid.Row="0" VerticalOptions = "CenterAndExpand" Grid.Column="1" Text="{Binding DataUltimaDoseMinistrada}" LineBreakMode="TailTruncation"  FontSize="Medium"/>
+                                    </Grid>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+			</ListView>
 			
 		</StackLayout>
 
