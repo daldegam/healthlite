@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Xamarin4PartyBH.Remedio">
+	<ContentPage.Content>
+
+				<StackLayout Spacing="20" Padding="10" VerticalOptions="Center">
+					<Label Text="Remédio" />
+					<Entry x:Name="remedioNome" Placeholder="Nome do Remédio" />
+					<Label Text="Frequência" />
+					<StackLayout Orientation="Horizontal">
+						<Entry x:Name="frequenciaHH" Keyboard="Numeric" Placeholder="HH" /><Entry x:Name="frequenciaMM" Keyboard="Numeric" Placeholder="MM" />
+					</StackLayout>
+					<Button Text="Cadastrar" Clicked="ClickedCadastrar" />
+					</StackLayout>
+		</ContentPage.Content>
+</ContentPage>
