@@ -25,6 +25,6 @@ namespace HealthApi.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Username> Usernames { get; set; }
+        public virtual DbSet<Pessoa> Pessoas { get; set; }
     }
 }

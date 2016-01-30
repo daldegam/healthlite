@@ -4,46 +4,63 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HealthLiteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Username">
+    <Schema Namespace="HealthLiteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Pessoa">
           <Key>
-            <PropertyRef Name="UsernameId" />
+            <PropertyRef Name="PessoaId" />
           </Key>
-          <Property Name="UsernameId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PessoaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="80" Nullable="false" />
-          <Property Name="Password" Type="varbinary" MaxLength="32" Nullable="false" />
+          <Property Name="Senha" Type="varbinary" MaxLength="32" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nascimento" Type="date" Nullable="false" />
+          <Property Name="Telefone" Type="varchar" MaxLength="19" />
+          <Property Name="Peso" Type="smallint" Nullable="false" />
+          <Property Name="Altura" Type="smallint" Nullable="false" />
+          <Property Name="Sexo" Type="bit" Nullable="false" />
         </EntityType>
         <EntityContainer Name="HealthLiteModelStoreContainer">
-          <EntitySet Name="Username" EntityType="Self.Username" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pessoa" EntityType="Self.Pessoa" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HealthLiteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Username">
-          <Key>
-            <PropertyRef Name="UsernameId" />
-          </Key>
-          <Property Name="UsernameId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="Binary" MaxLength="32" FixedLength="false" Nullable="false" />
-        </EntityType>
         <EntityContainer Name="HealthLiteEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Usernames" EntityType="Self.Username" />
+          <EntitySet Name="Pessoas" EntityType="HealthLiteModel.Pessoa" />
         </EntityContainer>
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="PessoaId" />
+          </Key>
+          <Property Name="PessoaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Senha" Type="Binary" Nullable="false" MaxLength="32" FixedLength="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nascimento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Telefone" Type="String" MaxLength="19" FixedLength="false" Unicode="false" />
+          <Property Name="Peso" Type="Int16" Nullable="false" />
+          <Property Name="Altura" Type="Int16" Nullable="false" />
+          <Property Name="Sexo" Type="Boolean" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="HealthLiteModelStoreContainer" CdmEntityContainer="HealthLiteEntities">
-          <EntitySetMapping Name="Usernames">
-            <EntityTypeMapping TypeName="HealthLiteModel.Username">
-              <MappingFragment StoreEntitySet="Username">
-                <ScalarProperty Name="UsernameId" ColumnName="UsernameId" />
+          <EntitySetMapping Name="Pessoas">
+            <EntityTypeMapping TypeName="HealthLiteModel.Pessoa">
+              <MappingFragment StoreEntitySet="Pessoa">
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Altura" ColumnName="Altura" />
+                <ScalarProperty Name="Peso" ColumnName="Peso" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Nascimento" ColumnName="Nascimento" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PessoaId" ColumnName="PessoaId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

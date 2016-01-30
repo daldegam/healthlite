@@ -10,12 +10,12 @@ using System.Web.Http.Description;
 
 namespace HealthApi.Controllers
 {
-    [RoutePrefix("api/username")]
-    public class UsernameController : ApiController
+    [RoutePrefix("api/pessoa")]
+    public class PessoaController : ApiController
     {
         private Models.HealthLiteEntities HealthLiteContext { get; set; }
 
-        public UsernameController()
+        public PessoaController()
         {
             this.HealthLiteContext = new Models.HealthLiteEntities();
         }
@@ -30,15 +30,15 @@ namespace HealthApi.Controllers
         }
 
         [HttpPost]
-        [Route("auth")]
-        [ResponseType(typeof(Models.Username))]
-        public IHttpActionResult AuthUsername([FromBody]ViewModel.Username username)
+        [Route("autenticar")]
+        [ResponseType(typeof(Models.Pessoa))]
+        public IHttpActionResult AuthUsername([FromBody]ViewModel.Pessoa username)
         {
             using (MD5 md5Hash = MD5.Create()) 
             {
-                byte[] hashTemp = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(username.password));
+                byte[] hashTemp = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(username.Senha));
 
-                var userData = this.HealthLiteContext.Usernames.Where(x => x.Email == username.email).Where(x => x.Password == hashTemp).FirstOrDefault();
+                var userData = this.HealthLiteContext.Pessoas.Where(x => x.Email == username.Email).Where(x => x.Senha == hashTemp).FirstOrDefault();
 
                 if (userData == null)
                 {

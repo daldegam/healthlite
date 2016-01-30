@@ -12,10 +12,16 @@ namespace HealthApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Username
+    public partial class Pessoa
     {
-        public int UsernameId { get; set; }
+        public int PessoaId { get; set; }
         public string Email { get; set; }
-        public byte[] Password { get; set; }
+        public byte[] Senha { get; set; }
+        public string Nome { get; set; }
+        public System.DateTime Nascimento { get; set; }
+        public string Telefone { get; set; }
+        public short Peso { get; set; }
+        public short Altura { get; set; }
+        public bool Sexo { get; set; }
     }
 }
