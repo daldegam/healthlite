@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HealtyLite.Report">
+	<ContentPage.Content>
+		<!--Imagem do Usuário-->
+		<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+			<Label Text="Nome"></Label>
+
+		</StackLayout>
+
+
+	    <!-- Pessoa -->
+		<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+			<Label Text="Nome"></Label>
+			<Label x:Name="lblNome" Text="{Binding Nome}"></Label>
+
+			<Label Text="Data de Nascimento"></Label>
+			<Label x:Name="lblNome" Text="{Binding DataNascimento}"></Label>
+
+			<Label Text="Altura"></Label>
+			<Label x:Name="lblAltura" Text="{Binding Altura}"></Label>
+
+			<Label Text="Peso"></Label>
+			<Label x:Name="lblPeso" Text="{Binding Peso}"></Label>
+
+			<Label Text="IMC"></Label>
+			<Label x:Name="lblIMC" Text="{Binding Altura}"></Label>
+
+		</StackLayout>
+
+		<!-- Doenças -->
+		<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+			
+			
+		</StackLayout>
+
+
+		<!-- Alergias -->
+		<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+			
+			
+		</StackLayout>
+
+		<!-- Intolerâncias -->
+		<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+			
+			
+		</StackLayout>
+
+
+		<!-- Remédios -->
+		<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+			
+			
+		</StackLayout>
+
+	</ContentPage.Content>
+</ContentPage>
