@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HealthLiteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="PessoaId" />
+          </Key>
+          <Property Name="PessoaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="Senha" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nascimento" Type="date" Nullable="false" />
+          <Property Name="Telefone" Type="varchar" MaxLength="19" />
+          <Property Name="Peso" Type="smallint" Nullable="false" />
+          <Property Name="Altura" Type="smallint" Nullable="false" />
+          <Property Name="Sexo" Type="bit" Nullable="false" />
+          <Property Name="ApiToken" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Imagem" Type="varbinary(max)" />
+          <Property Name="Alergia" Type="varchar" MaxLength="100" />
+          <Property Name="Intolerancia" Type="varchar" MaxLength="100" />
+          <Property Name="Doencas" Type="varchar(max)" />
+        </EntityType>
+        <EntityContainer Name="HealthLiteModelStoreContainer">
+          <EntitySet Name="Pessoa" EntityType="Self.Pessoa" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HealthLiteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="HealthLiteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Pessoas" EntityType="HealthLiteModel.Pessoa" />
+        </EntityContainer>
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="PessoaId" />
+          </Key>
+          <Property Name="PessoaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Senha" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nascimento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Telefone" Type="String" MaxLength="19" FixedLength="false" Unicode="false" />
+          <Property Name="Peso" Type="Int16" Nullable="false" />
+          <Property Name="Altura" Type="Int16" Nullable="false" />
+          <Property Name="Sexo" Type="Boolean" Nullable="false" />
+          <Property Name="ApiToken" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Imagem" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Alergia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Intolerancia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Doencas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HealthLiteModelStoreContainer" CdmEntityContainer="HealthLiteEntities">
+          <EntitySetMapping Name="Pessoas">
+            <EntityTypeMapping TypeName="HealthLiteModel.Pessoa">
+              <MappingFragment StoreEntitySet="Pessoa">
+                <ScalarProperty Name="Doencas" ColumnName="Doencas" />
+                <ScalarProperty Name="Intolerancia" ColumnName="Intolerancia" />
+                <ScalarProperty Name="Alergia" ColumnName="Alergia" />
+                <ScalarProperty Name="Imagem" ColumnName="Imagem" />
+                <ScalarProperty Name="ApiToken" ColumnName="ApiToken" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Altura" ColumnName="Altura" />
+                <ScalarProperty Name="Peso" ColumnName="Peso" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Nascimento" ColumnName="Nascimento" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PessoaId" ColumnName="PessoaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
