@@ -41,8 +41,6 @@
     <Compile Include="Model\ReportModel.cs" />
     <Compile Include="Model\RemedioModel.cs" />
     <Compile Include="Model\DoencaModel.cs" />
-    <Compile Include="Model\AlergiaModel.cs" />
-    <Compile Include="Model\IntoleranciaModel.cs" />
     <Compile Include="Views\Remedio.xaml.cs">
       <DependentUpon>Remedio.xaml</DependentUpon>
     </Compile>
@@ -50,6 +48,7 @@
       <DependentUpon>Informacoes.xaml</DependentUpon>
     </Compile>
     <Compile Include="VM\EmptyClass.cs" />
+    <Compile Include="src\Util.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Insights.1.11.3\build\portable-win+net45+wp80+windows8+wpa+MonoAndroid10+MonoTouch10\Xamarin.Insights.targets" Condition="Exists('..\packages\Xamarin.Insights.1.11.3\build\portable-win+net45+wp80+windows8+wpa+MonoAndroid10+MonoTouch10\Xamarin.Insights.targets')" />

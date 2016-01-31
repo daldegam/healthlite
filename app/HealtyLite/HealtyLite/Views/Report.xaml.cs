@@ -10,6 +10,7 @@ namespace HealtyLite
 		public Report ()
 		{
 			InitializeComponent ();
+			BindingContext = new ReportModel ().MontarRelatorio ();
 		}
 	}
 }

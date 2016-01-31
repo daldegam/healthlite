@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HealtyLite.Views.CadastroUsuario" Title="Cadastro">
+	<ContentPage.Content>
+		<StackLayout>
+			<BoxView BackgroundColor="Gray" HeightRequest="150">
+			</BoxView>
+			<ScrollView>
+				<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+					<Label Text="Nome" />
+					<Entry x:Name="Nome" Placeholder="" />
+					<Label Text="Celular" />
+					<Entry x:Name="Telefone" Keyboard="Telephone" />
+					<Label Text="Sexo" />
+					<Picker x:Name="Sexo" Title="Selecione o sexo">
+						<Picker.Items>
+							<x:String>Feminino</x:String>
+							<x:String>Masculino</x:String>
+						</Picker.Items>
+					</Picker>
+					<Label Text="Nascimento"  />
+					<DatePicker x:Name="Nascimento" />
+					<Label Text="Peso" />
+					<Entry Keyboard="Numeric" x:Name="Peso" />
+					<Label Text="Altura" />
+					<Entry Keyboard="Numeric" x:Name="Altura"  />
+					<Label Text="Email" />
+					<Entry Keyboard="Email"  x:Name="Email"  />
+					<Label Text="Senha" />
+					<Entry IsPassword="true"  x:Name="Senha" />
+					<Label Text="Confirmação de Senha" />
+					<Entry IsPassword="true"  x:Name="senha1"  />
+					<Button Text="Cadastrar usuário" Clicked="cadastraUsuario"/>
+				</StackLayout>
+			</ScrollView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
