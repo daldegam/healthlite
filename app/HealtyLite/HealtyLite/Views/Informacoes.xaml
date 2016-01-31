@@ -12,14 +12,14 @@
 				</StackLayout>
 			</StackLayout>
 			<Label Text="Alergia" />
-			<StackLayout Orientation="Horizontal">
+			<StackLayout Orientation="Horizontal" HorizontalOptions="Fill" >
 				<Switch IsToggled="{Binding Alergia}" />
-				<Entry x:Name="alergiaNome" Placeholder="Alergia a..." IsEnabled="{Binding Alergia}" />
+				<Entry x:Name="alergiaNome" Placeholder="Alergia a..." IsEnabled="{Binding Alergia}" HorizontalOptions="FillAndExpand" IsFocused="{Binding AlergiaFocus}"/>
 			</StackLayout>
 			<Label Text="Intolerância" />
-			<StackLayout Orientation="Horizontal">
+			<StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
 				<Switch IsToggled="{Binding Into}" />
-				<Entry x:Name="intolerânciaNome" Placeholder="Intolerância a..." IsEnabled="{Binding Into}" />
+				<Entry x:Name="intolerânciaNome" Placeholder="Intolerância a..." IsEnabled="{Binding Into}" HorizontalOptions="FillAndExpand"/>
 			</StackLayout>
 			<Button Text="Salvar" Clicked="ClickedCadastrar" />
 		</StackLayout>

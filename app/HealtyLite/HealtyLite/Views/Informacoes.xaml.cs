@@ -15,10 +15,10 @@ namespace HealtyLite
 
 			BindingContext = new TelaVM ();
 		}
-		async void ClickedCadastrar(object sender, EventArgs e)
+		async void ClickedCadastrar (object sender, EventArgs e)
 		{
 
-			if (remedioNome.Text == null || frequenciaHH.Text  == null || frequenciaMM.Text  == null || intolerânciaNome.Text == null || alergiaNome.Text == null) {
+			if (remedioNome.Text == null || frequenciaHH.Text == null || frequenciaMM.Text == null || intolerânciaNome.Text == null || alergiaNome.Text == null) {
 
 				await DisplayAlert ("Erro", "Verifique se preencheu todos os campos", "Voltar");
 
@@ -56,6 +56,16 @@ namespace HealtyLite
 			get { 
 				return _sAlergia;
 			}
+			set { 
+				if (_sAlergia != value) {
+					_sAlergia = value;
+					OnProp ();
+					OnProp ("AlergiaFocus");
+				}
+			}
+		}
+		public bool AlergiaFocus {
+			get{ return _sAlergia; }
 			set { 
 				if (_sAlergia != value) {
 					_sAlergia = value;
