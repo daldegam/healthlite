@@ -20,6 +20,8 @@
           <Property Name="Sexo" Type="bit" Nullable="false" />
           <Property Name="ApiToken" Type="varchar" MaxLength="36" Nullable="false" />
           <Property Name="Imagem" Type="varbinary(max)" />
+          <Property Name="Alergia" Type="varchar" MaxLength="100" />
+          <Property Name="Intolerancia" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityContainer Name="HealthLiteModelStoreContainer">
           <EntitySet Name="Pessoa" EntityType="Self.Pessoa" Schema="dbo" store:Type="Tables" />
@@ -46,6 +48,8 @@
           <Property Name="Sexo" Type="Boolean" Nullable="false" />
           <Property Name="ApiToken" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
           <Property Name="Imagem" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Alergia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Intolerancia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -56,6 +60,8 @@
           <EntitySetMapping Name="Pessoas">
             <EntityTypeMapping TypeName="HealthLiteModel.Pessoa">
               <MappingFragment StoreEntitySet="Pessoa">
+                <ScalarProperty Name="Intolerancia" ColumnName="Intolerancia" />
+                <ScalarProperty Name="Alergia" ColumnName="Alergia" />
                 <ScalarProperty Name="Imagem" ColumnName="Imagem" />
                 <ScalarProperty Name="ApiToken" ColumnName="ApiToken" />
                 <ScalarProperty Name="Sexo" ColumnName="Sexo" />

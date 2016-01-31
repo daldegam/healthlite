@@ -25,5 +25,7 @@ namespace HealthApi.Models
         public bool Sexo { get; set; }
         public string ApiToken { get; set; }
         public byte[] Imagem { get; set; }
+        public string Alergia { get; set; }
+        public string Intolerancia { get; set; }
     }
 }
