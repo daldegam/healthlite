@@ -74,11 +74,21 @@ namespace HealthApi.Controllers
                 return Unauthorized();
             }
 
-            auth = pessoa;
+            auth.Email = pessoa.Email;
+            auth.Senha = pessoa.Senha;
+            auth.Nome = pessoa.Nome;
+            auth.Nascimento = pessoa.Nascimento;
+            auth.Telefone = pessoa.Telefone;
+            auth.Peso = pessoa.Peso;
+            auth.Altura = pessoa.Altura;
+            auth.Sexo = pessoa.Sexo;
+            auth.Alergia = pessoa.Alergia;
+            auth.Intolerancia = pessoa.Intolerancia;
+            auth.Doencas = pessoa.Doencas;
 
             await this.HealthLiteContext.SaveChangesAsync();
 
-            return Ok(pessoa);
+            return Ok(auth);
         }
 
     }

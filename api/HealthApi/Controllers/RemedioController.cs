@@ -54,10 +54,12 @@ namespace HealthApi.Controllers
                 return NotFound();
             }
 
-            data = remedio;
+            data.Nome = remedio.Nome;
+            data.IntervaloHoras = remedio.IntervaloHoras;
+            data.DataUltimaDoseAdministrada = remedio.DataUltimaDoseAdministrada;
 
             this.HealthLiteContext.SaveChanges();
-            return Ok(remedio);
+            return Ok(data);
         }
 
         [HttpPut]
