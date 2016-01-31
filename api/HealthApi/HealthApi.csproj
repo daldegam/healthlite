@@ -98,6 +98,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\PessoaController.cs" />
+    <Compile Include="Controllers\RemedioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -117,6 +118,9 @@
       <DependentUpon>HealthLite.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Pessoa.cs">
+      <DependentUpon>HealthLite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Remedio.cs">
       <DependentUpon>HealthLite.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

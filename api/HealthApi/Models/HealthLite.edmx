@@ -24,8 +24,35 @@
           <Property Name="Intolerancia" Type="varchar" MaxLength="100" />
           <Property Name="Doencas" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="Remedio">
+          <Key>
+            <PropertyRef Name="RemedioId" />
+          </Key>
+          <Property Name="RemedioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PessoaId" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IntervaloHoras" Type="tinyint" Nullable="false" />
+          <Property Name="DataUltimaDoseAdministrada" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Remedio_Pessoa">
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+          <End Role="Remedio" Type="Self.Remedio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="PessoaId" />
+            </Principal>
+            <Dependent Role="Remedio">
+              <PropertyRef Name="PessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="HealthLiteModelStoreContainer">
           <EntitySet Name="Pessoa" EntityType="Self.Pessoa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Remedio" EntityType="Self.Remedio" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Remedio_Pessoa" Association="Self.FK_Remedio_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Remedio" EntitySet="Remedio" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -33,6 +60,11 @@
       <Schema Namespace="HealthLiteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="HealthLiteEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Pessoas" EntityType="HealthLiteModel.Pessoa" />
+          <EntitySet Name="Remedios" EntityType="HealthLiteModel.Remedio" />
+          <AssociationSet Name="FK_Remedio_Pessoa" Association="HealthLiteModel.FK_Remedio_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoas" />
+            <End Role="Remedio" EntitySet="Remedios" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Pessoa">
           <Key>
@@ -52,7 +84,31 @@
           <Property Name="Alergia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Intolerancia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Doencas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Remedios" Relationship="HealthLiteModel.FK_Remedio_Pessoa" FromRole="Pessoa" ToRole="Remedio" />
         </EntityType>
+        <EntityType Name="Remedio">
+          <Key>
+            <PropertyRef Name="RemedioId" />
+          </Key>
+          <Property Name="RemedioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PessoaId" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IntervaloHoras" Type="Byte" Nullable="false" />
+          <Property Name="DataUltimaDoseAdministrada" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Pessoa" Relationship="HealthLiteModel.FK_Remedio_Pessoa" FromRole="Remedio" ToRole="Pessoa" />
+        </EntityType>
+        <Association Name="FK_Remedio_Pessoa">
+          <End Type="HealthLiteModel.Pessoa" Role="Pessoa" Multiplicity="1" />
+          <End Type="HealthLiteModel.Remedio" Role="Remedio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="PessoaId" />
+            </Principal>
+            <Dependent Role="Remedio">
+              <PropertyRef Name="PessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -76,6 +132,17 @@
                 <ScalarProperty Name="Senha" ColumnName="Senha" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="PessoaId" ColumnName="PessoaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Remedios">
+            <EntityTypeMapping TypeName="HealthLiteModel.Remedio">
+              <MappingFragment StoreEntitySet="Remedio">
+                <ScalarProperty Name="DataUltimaDoseAdministrada" ColumnName="DataUltimaDoseAdministrada" />
+                <ScalarProperty Name="IntervaloHoras" ColumnName="IntervaloHoras" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="PessoaId" ColumnName="PessoaId" />
+                <ScalarProperty Name="RemedioId" ColumnName="RemedioId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

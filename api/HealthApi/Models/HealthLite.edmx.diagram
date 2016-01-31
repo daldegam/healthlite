@@ -6,6 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="a86f48a07b8d44fc8c34fb9f05f71e1a" Name="Diagram1">
         <EntityTypeShape EntityType="HealthLiteModel.Pessoa" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HealthLiteModel.Remedio" Width="1.5" PointX="3.375" PointY="0.75" />
+        <AssociationConnector Association="HealthLiteModel.FK_Remedio_Pessoa" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

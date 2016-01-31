@@ -34,7 +34,7 @@ namespace HealthApi.Controllers
         [ResponseType(typeof(Models.Pessoa))]
         public IHttpActionResult ObtemPessoa(string email, string senha)
         {
-            var userData = this.HealthLiteContext.Pessoas.Where(x => x.Email == email).Where(x => x.Senha == senha).FirstOrDefault();
+            var userData = this.HealthLiteContext.Pessoas.Include("Remedios").Where(x => x.Email == email).Where(x => x.Senha == senha).FirstOrDefault();
 
             if (userData == null)
             {

@@ -26,5 +26,6 @@ namespace HealthApi.Models
         }
     
         public virtual DbSet<Pessoa> Pessoas { get; set; }
+        public virtual DbSet<Remedio> Remedios { get; set; }
     }
 }

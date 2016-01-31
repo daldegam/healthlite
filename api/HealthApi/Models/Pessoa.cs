@@ -14,6 +14,12 @@ namespace HealthApi.Models
     
     public partial class Pessoa
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Pessoa()
+        {
+            this.Remedios = new HashSet<Remedio>();
+        }
+    
         public int PessoaId { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
@@ -28,5 +34,8 @@ namespace HealthApi.Models
         public string Alergia { get; set; }
         public string Intolerancia { get; set; }
         public string Doencas { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Remedio> Remedios { get; set; }
     }
 }
