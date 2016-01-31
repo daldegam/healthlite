@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HealtyLite.Report">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HealtyLite.Views.Report">
 	<ContentPage.Content>
 	<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 		<!--Imagem do Usuário-->
@@ -58,53 +58,6 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
 			</ListView>
-		</StackLayout>
-
-		<!-- Alergias -->
-		<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-			<ListView x:Name="ListaAlergias">
-				<ListView.ItemTemplate>
-                       <DataTemplate>
-                            <ViewCell>
-                               <ViewCell.View>
-                                   <Grid Padding="5">
-                                       <Grid.RowDefinitions>
-                                            <RowDefinition Height="auto" />
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*" />
-                                       </Grid.ColumnDefinitions>                                        
-                                        <Label Grid.Row="0" VerticalOptions = "CenterAndExpand" 
-                                        	   Grid.Column="1" Text="{Binding AlergiaModel.Nome}" LineBreakMode="TailTruncation"  FontSize="Medium"/>
-                                    </Grid>
-                                </ViewCell.View>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-			</ListView>			
-		</StackLayout>
-
-		<!-- Intolerâncias -->
-		<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-			<ListView x:Name="ListaIntolerancias">
-				<ListView.ItemTemplate>
-                       <DataTemplate>
-                            <ViewCell>
-                               <ViewCell.View>
-                                   <Grid Padding="5">
-                                       <Grid.RowDefinitions>
-                                            <RowDefinition Height="auto" />
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*" />
-                                       </Grid.ColumnDefinitions>                                        
-                                        <Label Grid.Row="0" VerticalOptions = "CenterAndExpand" Grid.Column="1" Text="{Binding IntoleranciaModel.Nome}" LineBreakMode="TailTruncation"  FontSize="Medium"/>
-                                    </Grid>
-                                </ViewCell.View>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-			</ListView>			
 		</StackLayout>
 
 

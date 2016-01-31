@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HealtyLite
+namespace HealtyLite.Model
 {
 	public class ReportModel
 	{

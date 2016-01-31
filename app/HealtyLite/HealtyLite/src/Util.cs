@@ -20,6 +20,14 @@ namespace HealtyLite
 			return (peso * fracaoMinimaAguaPorLitro) / 1000;
 
 		}
+
+
+
+		//public static Type Request(
+	}
+
+	public class HttpRequestOptions
+	{
 	}
 }
 

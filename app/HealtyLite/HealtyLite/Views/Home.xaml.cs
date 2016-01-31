@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Xamarin.Forms;
 using System.Threading.Tasks;
-using System.Net.Http;
+using System.Net;
 using Newtonsoft.Json;
 using HealtyLite.Model;
 using Xamarin;
-using System.Net;
 using System.Text;
+using System.Net.Http;
 
 namespace HealtyLite.Views
 {
@@ -47,13 +46,13 @@ namespace HealtyLite.Views
 					var resposta = await response.Content.ReadAsStringAsync ();
 
 				try {
-					
+
+					var navigationPage = new NavigationPage(new Report());
 
 					var texto = JsonConvert.DeserializeObject<PessoaMOD> (resposta);
 					App.Current.Properties["login"]= resposta;
 					App.Current.SavePropertiesAsync();
-					App.master.Detail = new Report();
-					App.master.Master = new Report();
+					App.master.Master = navigationPage;
 
 				} catch (Exception ex) {
 					Insights.Report (ex);
@@ -63,12 +62,7 @@ namespace HealtyLite.Views
 						email.Text = String.Empty;
 						senha.Text = String.Empty;
 					}
-
 				}
-
-
-
-
 			}
 
 		}

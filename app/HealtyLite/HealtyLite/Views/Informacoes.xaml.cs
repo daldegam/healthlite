@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Xamarin.Forms;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace HealtyLite
+namespace HealtyLite.Views
 {
 	public partial class Informacoes : ContentPage
 	{

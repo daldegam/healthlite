@@ -1,9 +1,17 @@
 ﻿using System;
 
-namespace HealtyLite
+
+namespace HealtyLite.Model
 {
 	public class RemedioModel
 	{
+		
+		public int Id {
+			get;
+			set;
+		}
+
+		
 		public string Nome {
 			get;
 			set;
