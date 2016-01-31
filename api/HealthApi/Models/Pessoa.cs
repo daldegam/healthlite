@@ -27,5 +27,6 @@ namespace HealthApi.Models
         public byte[] Imagem { get; set; }
         public string Alergia { get; set; }
         public string Intolerancia { get; set; }
+        public string Doencas { get; set; }
     }
 }
