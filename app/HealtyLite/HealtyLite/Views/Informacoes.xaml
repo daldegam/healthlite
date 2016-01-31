@@ -1,6 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HealtyLite.Informacoes">
 	<ContentPage.Content>
-
+		<StackLayout>
+		<Label Text="Alergia" />
+			<StackLayout Orientation="Horizontal">
+				<Switch IsToggled="{Binding Alergia}" />	<Entry x:Name="alergiaNome" Placeholder="Alergia a..." IsEnabled="{Binding Alergia}" />
+			</StackLayout>
+			<Label Text="Intolerância" />
+			<StackLayout Orientation="Horizontal">
+				
+				<Switch IsToggled="{Binding Into}" />	<Entry x:Name="intolerânciaNome" Placeholder="Intolerância a..." IsEnabled="{Binding Into}" />
+			</StackLayout>
+			<Button Text="Cadastrar Informações" />
+		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

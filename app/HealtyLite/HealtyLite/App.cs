@@ -7,7 +7,7 @@ namespace HealtyLite
 	{
 		public App ()
 		{
-			MainPage = new NavigationPage(new Home());
+			MainPage = new NavigationPage(new Informacoes());
 		}
 
 		protected override void OnStart ()
