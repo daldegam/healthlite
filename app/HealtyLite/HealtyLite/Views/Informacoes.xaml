@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage Title="Cadastro Informações" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HealtyLite.Informacoes">
 	<ContentPage.Content>
-		<StackLayout>
-			<StackLayout>
+		<StackLayout VerticalOptions="FillAndExpand" >
+			<StackLayout >
 				<Label Text="Remédio" />
 				<Entry x:Name="remedioNome" Placeholder="Nome do Remédio" />
 				<Label Text="Frequência" />
@@ -21,7 +21,8 @@
 				<Switch IsToggled="{Binding Into}" />
 				<Entry x:Name="intolerânciaNome" Placeholder="Intolerância a..." IsEnabled="{Binding Into}" HorizontalOptions="FillAndExpand"/>
 			</StackLayout>
-			<Button Text="Salvar" Clicked="ClickedCadastrar" />
+
+			<Button Text="Salvar" Clicked="ClickedCadastrar" VerticalOptions="EndAndExpand"/>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
