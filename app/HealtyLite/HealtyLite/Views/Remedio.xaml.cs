@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Forms;
 
-namespace Xamarin4PartyBH
+namespace HealtyLite
 {
 	public partial class Remedio : ContentPage
 	{

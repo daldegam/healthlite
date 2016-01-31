@@ -15,6 +15,23 @@ namespace HealtyLite
 
 			BindingContext = new TelaVM ();
 		}
+		async void ClickedCadastrar(object sender, EventArgs e)
+		{
+
+			if (remedioNome.Text == null || frequenciaHH.Text  == null || frequenciaMM.Text  == null || intolerânciaNome.Text == null || alergiaNome.Text == null) {
+
+				await DisplayAlert ("Erro", "Verifique se preencheu todos os campos", "Voltar");
+
+			} else {
+
+				var remedio = remedioNome.Text;
+				var frequenciaRemedioHH = frequenciaHH.Text;
+				var frequenciaRemedioMM = frequenciaMM.Text;
+				var alergia = alergiaNome.Text;
+				var intolerancia = intolerânciaNome.Text;
+			}
+
+		}
 	}
 
 	class TelaVM : INotifyPropertyChanged
@@ -33,7 +50,7 @@ namespace HealtyLite
 
 		#endregion
 
-		private bool _sAlergia;
+		private bool _sAlergia, _sInto;
 
 		public bool Alergia {
 			get { 
@@ -46,9 +63,6 @@ namespace HealtyLite
 				}
 			}
 		}
-
-		private bool _sInto;
-
 		public bool Into {
 			get { 
 				return _sInto;
